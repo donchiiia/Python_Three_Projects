@@ -25,7 +25,7 @@ class Ship():
         self.moving_top = False
         self.moving_bottom = False
 
-    def update(self, ai_settings):
+    def update(self):
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.ship_speed_factor
         if self.moving_left and self.rect.left > 0:
@@ -41,3 +41,8 @@ class Ship():
     def blitme(self):
         """在指定位置绘制飞船"""
         self.screen.blit(self.image, self.rect)
+
+    def create_ship(self):
+        """让飞船在屏幕居中"""
+        self.center = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
